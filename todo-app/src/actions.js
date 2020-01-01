@@ -28,8 +28,8 @@ export function addTodo(text) {
   return { type: ADD_TODO, text }
 }
 //indexとtype:TOGGLE_TODOを返す
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index }
+export function toggleTodo(id) {
+  return { type: TOGGLE_TODO, id }
 }
 //filterとSET_VISIBILITY_FILTERを返す
 export function setVisibilityFilter(filter) {
