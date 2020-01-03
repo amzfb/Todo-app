@@ -1,6 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {Grid} from '@material-ui/core'
+
 let input;
 
 const TodoForm = ({onSubmit}) => (
@@ -14,12 +16,22 @@ const TodoForm = ({onSubmit}) => (
           input.value = ''
         }}
       >
-        <TextField
-          inputRef={node => {
-            input = node
-          }}
-        />
-        <Button variant="contained" color="secondary" type="submit">Add</Button>
+        <Grid container>
+          <Grid xs={10} md={11} item style={{ paddingRight: 16 }}>
+            <TextField
+            fullWidth
+            placeholder="Enter your task"
+            inputRef={node => {
+              input = node
+            }}
+            />
+          </Grid>
+          <Grid xs={2} md={1} item>
+            <Button variant="contained" color="secondary" type="submit">
+            Add
+            </Button>
+          </Grid>
+        </Grid>
       </form>
 );
 
