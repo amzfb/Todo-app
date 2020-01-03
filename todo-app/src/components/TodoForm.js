@@ -1,5 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 let input;
 
 const TodoForm = ({onSubmit}) => (
@@ -13,12 +14,12 @@ const TodoForm = ({onSubmit}) => (
           input.value = ''
         }}
       >
-        <input
-          ref={node => {
+        <TextField
+          inputRef={node => {
             input = node
           }}
         />
-        <button type="submit">Add Todo</button>
+        <Button variant="contained" color="secondary" type="submit">Add</Button>
       </form>
 );
 
