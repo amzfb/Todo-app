@@ -2,10 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, checks, onTodoClick, onCheckClick, onCheckListSubmit }) => (
   <ul>
     {todos.map((todo) => (
-      <Todo key={todo.id} text={todo.text} completed={todo.completed} onClick={() => onTodoClick(todo.id)} />
+      <Todo 
+      key={todo.id} 
+      text={todo.text} 
+      completed={todo.completed} 
+      onCheckBoxClick={() => onTodoClick(todo.id)} 
+      pId={todo.id}
+      checks={checks} 
+      onCheckClick={onCheckClick} 
+      onCheckListSubmit={onCheckListSubmit} 
+      
+      />
     ))}
   </ul>
 )

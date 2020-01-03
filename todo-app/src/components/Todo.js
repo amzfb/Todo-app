@@ -1,15 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import CheckBox from './CheckBox'
+import React from 'react';
+import PropTypes from 'prop-types';
+import CheckBox from './CheckBox';
+//import CheckList from './CheckList';
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({pId, onCheckBoxClick, completed, text, checks, onCheckClick, onCheckListSubmit}) => (
   <li
     /* onClick={onClick} */
     /* style={{
       textDecoration: completed ? 'line-through' : 'none'
     }} */
   >
-    {text} <CheckBox onClick={onClick} content={completed ? '☑' : '☐'} />
+    <CheckBox onClick={onCheckBoxClick} content={completed ? '☑' : '☐'} /> {text} 
+    {/* <br />
+    <CheckList 
+    pComponentId={pId} 
+    checks={checks} 
+    onCheckClick={onCheckClick} 
+    onCheckListSubmit={onCheckListSubmit} 
+     /> */}
   </li>
 )
 

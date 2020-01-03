@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
+import { toggleTodo, addCheckListChildren, toggleCheckListChildren } from '../actions'
 import TodoList from '../components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
@@ -17,14 +17,21 @@ const getVisibleTodos = (todos, filter) => {
 
 const mapStateToProps = state => {
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos: getVisibleTodos(state.todos, state.visibilityFilter),
+    checks: state.checks
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onTodoClick: id => {
-      dispatch(toggleTodo(id))
+      dispatch(toggleTodo(id));
+    },
+    onCheckClick: id => {
+      dispatch(toggleCheckListChildren(id));
+    },
+    onCheckListSubmit: (pId, text) => {
+      dispatch(addCheckListChildren(pId, text));
     }
   }
 }
